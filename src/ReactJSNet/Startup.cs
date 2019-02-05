@@ -76,6 +76,7 @@ namespace ReactJSNet
                 // add all the necessary JavaScript files here. This includes
                 // your components as well as all of their dependencies.
                 // See http://reactjs.net/ for more information. Example:
+                
                 //config
                 //  .AddScript("~/Scripts/First.jsx")
                 //  .AddScript("~/Scripts/Second.jsx");

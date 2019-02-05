@@ -23,7 +23,8 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "React.AspNet": "3.0.0",
-    "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection": "3.0.0"
+    "JavaScriptEngineSwitcher.Extensions.MsDependencyInjection": "3.0.0",
+    "Microsoft.ChakraCore": "1.11.5"
   },
 
   "tools": {
