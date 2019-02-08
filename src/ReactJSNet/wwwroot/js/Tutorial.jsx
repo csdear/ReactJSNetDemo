@@ -6,18 +6,40 @@ const data = [
 ];
 
 class CommentBox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
+    loadCommentsFromServer() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', this.props.url, true);
+        xhr.onload = () => {
+            const data = JSON.parse(xhr.responseText);
+            this.setState({ data: data });
+        };
+        xhr.send();
+    }
+    componentDidMount() {
+        this.loadCommentsFromServer();
+        window.setInterval(
+            () => this.loadCommentsFromServer(),
+            this.props.pollInterval,
+        );
+    }
     render() {
         return (
             <div className="commentBox">
-					<h1>Comments</h1>
-						<CommentList data={this.props.data} />
-						<CommentForm />
-			</div>
+                <h1>Comments</h1>
+                <CommentList data={this.state.data} />
+                <CommentForm />
+            </div>
         );
     }
 }
-
-ReactDOM.render(<CommentBox data={data}  />, document.getElementById('content'));
+ReactDOM.render(
+    <CommentBox url="/comments" pollInterval={2000} />,
+    document.getElementById('content'),
+);
 
 		class CommentList extends React.Component {
     render() {
